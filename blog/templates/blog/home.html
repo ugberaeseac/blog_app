@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    
+    {% for post in posts%}
+        <article class="card mb-4 shadow-sm">
+            
+            <div class="card-body">
+                    <h2 class="card-title"><a href="#" >{{ post.title }}</a></h2>
+                    <p class="card-text">{{ post.title }}</p>
+                    <div class="media-body">
+                        <p class="card-text"><img class="rounded-circle" style="height: 25px; width: 25px" src="{{ post.author.profile.image.url }}"><small class="text-body-secondary">{{ post.author }}</small> <small class="text-body-secondary">{{ post.date_posted|date:"F d, Y" }}</small></p>
+                    </div>
+                    
+            </div>
+
+        </article>
+    {% endfor %}
+
+{% endblock content %}
+
+{% block aside %}
+    <div class="p-4 mb-4 bg-light rounded sticky-top" style="top: 20px;">
+        <h4>About The Author</h4>
+        <p>A short bio about who writes this blog. Welcome!</p>
+    </div>
+
+    <div class="p-4 bg-light rounded sticky-top" style="top: 150px;">
+        <h4>Categories</h4>
+        <ul class="list-unstyled mb-0">
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Travel</a></li>
+            <li><a href="#">Food</a></li>
+        </ul>
+    </div>
+{% endblock aside %}
