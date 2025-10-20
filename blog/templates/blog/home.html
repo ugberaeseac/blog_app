@@ -5,18 +5,43 @@
         <article class="card mb-4 shadow-sm">
             
             <div class="card-body">
-                    <h2 class="card-title"><a href="#" >{{ post.title }}</a></h2>
-                    <p class="card-text">{{ post.title }}</p>
+                    <h2 class="card-title"><a class="text-decoration-none" href="{% url 'blog-detail' post.id %}" >{{ post.title }}</a></h2>
+                    <p class="card-text">{{ post.content|truncatewords:30 }}
+                            {% if post.content|length > 300 %}
+                                <a class="text-decoration-none" href="{% url 'blog-detail' post.id %}">continue reading</a>
+                            {% endif %}
+                        
+                    </p>
                     <div class="media-body">
-                        <p class="card-text"><img class="rounded-circle" style="height: 25px; width: 25px" src="{{ post.author.profile.image.url }}"><small class="text-body-secondary">{{ post.author }}</small> <small class="text-body-secondary">{{ post.date_posted|date:"F d, Y" }}</small></p>
+                         <p class="card-text">
+                            <br>
+                            <img class="rounded-circle" style="height: 25px; width: 25px" src="{{ post.author.profile.image.url }}">
+                            <a class="text-decoration-none" href="#">{{ post.author }}</a>
+                            <small class="text-body-secondary">{{ post.date_posted|date:"F d, Y" }}</small>
+                        </p>
                     </div>
                     
             </div>
 
         </article>
     {% endfor %}
+    
+    {% if is_paginated %}
+            {% if page_obj.has_previous %}
+                <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+
+            {% if page_obj.has_next %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+            {% endif %}
+
+    {% endif %}
 
 {% endblock content %}
+
 
 {% block aside %}
     <div class="p-4 mb-4 bg-light rounded sticky-top" style="top: 20px;">

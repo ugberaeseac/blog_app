@@ -35,9 +35,9 @@
         <h4> {{ user.username }}'s Blogs</h4>
         <p>Your most recent blogs:</p>
         {% for post in posts %}
-            <p>{{ post.title }}</p>
+            <p><a class="text-decoration-none" href="{% url 'blog-detail' post.id %}">{{ post.title }}</a></p>
         {% endfor %}
-        <p>A short bio about who writes this blog. Welcome!</p>
+
     </div>
 
 
