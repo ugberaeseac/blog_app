@@ -12,7 +12,7 @@
       <div class="d-flex align-items-center">
         <img class="rounded-circle me-2" style="height: 25px; width: 25px;" src="{{ post.author.profile.image.url }}" alt="{{ post.author }}">
         <div>
-          <small class="text-body-secondary d-block">{{ post.author }} {{ post.date_posted|date:"F d, Y" }}</small>
+          <a class="text-decoration-none" href="{% url 'user-blog' post.author.username %}" >{{ post.author }}</a><small class="text-body-secondary"> {{ post.date_posted|date:"F d, Y" }}</small>
          
         </div>
       </div>

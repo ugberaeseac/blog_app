@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-    
+    <legend class="mb-4"> Blog Posts by {{  view.kwargs.username }} ({{ page_obj.paginator.count }})</legend>
     {% for post in posts%}
         <article class="card mb-4 shadow-sm">
             
