@@ -6,7 +6,7 @@
             
             <div class="card-body">
                     <h2 class="card-title"><a class="text-decoration-none" href="{% url 'blog-detail' post.id %}" >{{ post.title }}</a></h2>
-                    <p class="card-text">{{ post.content|truncatewords:30 }}
+                    <p class="card-text">{{ post.content|truncatewords:50 }}...
                             {% if post.content|length > 300 %}
                                 <a class="text-decoration-none" href="{% url 'blog-detail' post.id %}">continue reading</a>
                             {% endif %}
