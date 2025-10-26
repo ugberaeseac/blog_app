@@ -52,7 +52,7 @@ def profile(request):
     return render(request, 'users/profile.html', context)
 
 
-
+@login_required
 def custom_logout(request):
     if request.method == 'POST':
         logout(request)

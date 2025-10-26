@@ -6,15 +6,11 @@ from .models import Post
 
 
 
-def home(request):
-    posts = Post.objects.all()
-    context = {
-        'posts': posts
-    }
-    return render(request, 'blog/home.html', context)
+def index(request):
+    return render(request, 'blog/index.html')
 
 
-class PostListView(ListView):
+class PostListView(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'blog/home.html'
     context_object_name = 'posts'
@@ -22,7 +18,7 @@ class PostListView(ListView):
     paginate_by = 5
 
 
-class UserPostListView(ListView):
+class UserPostListView(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'blog/user_posts.html'
     context_object_name = 'posts'
@@ -34,7 +30,7 @@ class UserPostListView(ListView):
 
 
 
-class PostDetailView(DetailView):
+class PostDetailView(LoginRequiredMixin, DetailView):
     model = Post
     context_object_name = 'post'
 

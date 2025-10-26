@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="container d-flex flex-column justify-content-center align-items-start pt-5">
+  <h1 class="fw-bold display-1 lh-sm">Your <br> Stories & Ideas</h1>
+
+  <p class="fw-light fs-4 mt-3">A place to read, write, and deepen your understanding</p>
+
+  <a class="btn btn-dark btn-lg mt-4" href="{% url 'users-login' %}">Start Reading</a>
+</div>
+{% endblock content %}
+
+{% block aside %}{% endblock aside %}
