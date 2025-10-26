@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['blog-app-2hkl.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'blog-app-2hkl.onrender.com']
 
 
 # Application definition
