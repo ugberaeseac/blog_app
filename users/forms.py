@@ -33,3 +33,10 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('image',)
+
+    def clean_image(self):
+        image = self.cleaned_data.get('image')
+        if image:
+            if image.size > 2 * 1024 * 1024:
+                raise ValidationError("Image file too large ( > 2MB )")
+        return image

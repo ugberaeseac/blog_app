@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'crispy_forms',
     'crispy_bootstrap4',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -144,8 +146,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -155,6 +156,17 @@ LOGIN_REDIRECT_URL = 'blog-home'
 LOGOUT_REDIRECT_URL = 'users-login'
 
 LOGIN_URL = 'users-login'
+
+CLOUDINARY = {
+    'cloud_name': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'api_key': os.environ.get('CLOUDINARY_API_KEY'),
+    'api_secret': os.environ.get('CLOUDINARY_API_SECRET')
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 EMAIL_BACKEND=os.environ.get('EMAIL_BACKEND')
 EMAIL_HOST=os.environ.get('EMAIL_HOST')
