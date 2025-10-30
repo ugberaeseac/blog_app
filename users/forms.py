@@ -18,6 +18,12 @@ class UserRegisterForm(UserCreationForm):
             raise forms.ValidationError('This email already exists')
         return email
 
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if username:
+            return username.lower()
+        return username
+
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField(required=True)
