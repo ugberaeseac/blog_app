@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
+{% load cloudinary %}
 {% load crispy_forms_tags %}
+{% cloudinary user.profile.image.name width=100 height=100 %}
 
 {% block content %}
 <div class="d-flex align-items-center my-4 p-3 border rounded shadow-sm" style="max-width: 800px; margin: auto;">
