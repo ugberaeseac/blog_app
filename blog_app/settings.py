@@ -39,14 +39,14 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'blog-app-2hkl.onrender.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'cloudinary_storage',
-    'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
