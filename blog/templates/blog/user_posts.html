@@ -8,7 +8,7 @@
                     <h2 class="card-title"><a class="text-decoration-none" href="{% url 'blog-detail' post.id %}" >{{ post.title }}</a></h2>
                     <p class="card-text">{{ post.content|truncatewords:50 }}...
                             {% if post.content|length > 300 %}
-                                <a class="text-decoration-none" href="{% url 'blog-detail' post.id %}">continue reading</a>
+                                <a class="text-decoration-none" href="{% url 'blog-detail' post.id %}"><small style="font-size: 11px;">READ MORE >></small></a>
                             {% endif %}
                         
                     </p>
