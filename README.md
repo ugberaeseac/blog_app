@@ -20,14 +20,14 @@ A full-featured **Blog Web Application** built with **Django**, designed for man
 ## Tech Stack
 
 ###  Layer                      Technology
---------------------        -------------------------------------------
-- **  Backend  **             Django 5.x (Python 3.10)
-- **  Frontend **             HTML5, CSS3, Bootstrap, Crispy Forms
-- **  Database **             SQLite3 (local), PostgreSQL (deployment via dj-database-url)
-- **  Media Storage **        Cloudinary (django-cloudinary-storage)
-- **  Static Handling **      WhiteNoise
-- **  Environment **          Virtualenv
-- **  Deployment  **          Render
+--------------------   -------------------------------------------
+- **Backend**            Django 5.x (Python 3.10)
+- **Frontend**           HTML5, CSS3, Bootstrap, Crispy Forms
+- **Database**           SQLite3 (local), PostgreSQL (deployment via dj-database-url)
+- **Media Storage**      Cloudinary (django-cloudinary-storage)
+- **Static Handling**    WhiteNoise
+- **Environment**        Virtualenv
+- **Deployment**         Render
 
 ------------------------------------------------------------------------
 
